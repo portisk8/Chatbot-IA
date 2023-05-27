@@ -1,0 +1,37 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "chatbot",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js --exec babel-node",
+    "build": "babel src --out-dir build",
+    "start": "node build/index.js",
+    "test": "jest --testEnvironment=node"
+  },
+  "keywords": [],
+  "author": "porti",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.11.5",
+    "@babel/core": "^7.11.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.15",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "@adiwajshing/baileys": "4.4.0",
+    "@bot-whatsapp/bot": "latest",
+    "@bot-whatsapp/cli": "latest",
+    "@bot-whatsapp/database": "latest",
+    "@bot-whatsapp/portal": "latest",
+    "@bot-whatsapp/provider": "latest",
+    "wa-sticker-formatter": "4.3.2",
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "mime-types": "2.1.35",
+    "async": "^3.2.4"
+  }
+}
