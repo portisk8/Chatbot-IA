@@ -19,7 +19,6 @@ const flowPrincipal = addKeyword([""])
     null,
 
     async (ctx, { flowDynamic, endFlow }) => {
-      //   let data = await sendMessage(ctx.body);
       return flowDynamic(await sendMessageToConversationAsync(ctx.body));
     }
   );
