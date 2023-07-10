@@ -14,6 +14,7 @@ import { flowAgente } from "./flows/flowAgente";
 import UserService from "./models/UserService";
 import User from "./models/User";
 import { MeetCodyServiceClient } from "./services/MeetCodyServiceClient";
+import Role from "./models/Role";
 
 const flowWelcome = addKeyword([EVENTS.WELCOME]).addAnswer(
   ["Dame un minuto por favor..."],
@@ -100,11 +101,12 @@ const menuFlow = addKeyword(["menu"])
         let number = Number(ctx.body);
         if (number <= 0 || servicesData.length < number) return fallBack();
         let user = await User.findOne({ phoneNumber: ctx.from });
+        const roleUser = await Role.find({ name: { $in: ["user"] } });
         if (!user)
           user = await User.create({
             name: ctx.pushName,
             phoneNumber: ctx.from,
-            roles: ["user"],
+            roles: roleUser.map((role) => role._id),
           });
 
         let serviceSelected = servicesData[number - 1];
